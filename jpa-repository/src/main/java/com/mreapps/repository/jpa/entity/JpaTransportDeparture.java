@@ -1,4 +1,4 @@
-package com.mreapps.repo.jpa.entity;
+package com.mreapps.repository.jpa.entity;
 
 import com.mreapps.repository.entity.TransportDeparture;
 import com.mreapps.repository.entity.TransportRouteLocation;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "bus_departure_location")
+@Table(name = "transport_departure")
 public class JpaTransportDeparture extends AbstractJpaBaseEntity implements TransportDeparture
 {
     private static final long serialVersionUID = -229129031646684730L;

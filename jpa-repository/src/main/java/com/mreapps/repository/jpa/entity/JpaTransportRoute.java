@@ -1,4 +1,4 @@
-package com.mreapps.repo.jpa.entity;
+package com.mreapps.repository.jpa.entity;
 
 import com.mreapps.repository.entity.TransportRoute;
 import com.mreapps.repository.entity.TransportRouteLocation;
@@ -6,6 +6,7 @@ import org.apache.commons.lang.Validate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "bus_route")
+@Table(name = "transport_route")
 public class JpaTransportRoute extends AbstractJpaBaseEntity implements TransportRoute
 {
     private static final long serialVersionUID = -8619632034740942690L;
@@ -35,6 +36,7 @@ public class JpaTransportRoute extends AbstractJpaBaseEntity implements Transpor
     @Column(name = "valid_to")
     private Date validTo;
 
+    @OneToMany(mappedBy = "transportRoute")
     private Set<JpaTransportRouteLocation> locations = new HashSet<JpaTransportRouteLocation>();
 
     @Override

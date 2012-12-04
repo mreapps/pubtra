@@ -1,4 +1,4 @@
-package com.mreapps.repo.jpa.dao;
+package com.mreapps.repository.jpa.dao;
 
 import com.mreapps.repository.dao.GenericDao;
 import com.mreapps.repository.entity.BaseEntity;

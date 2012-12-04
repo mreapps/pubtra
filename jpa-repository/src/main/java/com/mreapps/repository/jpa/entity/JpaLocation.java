@@ -1,4 +1,4 @@
-package com.mreapps.repo.jpa.entity;
+package com.mreapps.repository.jpa.entity;
 
 import com.mreapps.repository.entity.Location;
 

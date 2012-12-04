@@ -1,8 +1,10 @@
-package com.mreapps.repo.jpa.dao;
+package com.mreapps.repository.jpa.dao;
 
-import com.mreapps.repo.jpa.entity.JpaLocation;
 import com.mreapps.repository.dao.LocationDao;
 import com.mreapps.repository.entity.Location;
+import com.mreapps.repository.jpa.entity.JpaLocation;
+import com.mreapps.repository.jpa.entity.JpaLocation_;
+import org.apache.commons.lang.Validate;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -21,12 +23,16 @@ public class JpaLocationDao extends AbstractJpaDao<Location, JpaLocation> implem
     @Override
     public List<Location> findByPartOfName(String partOfName)
     {
+        Validate.notNull(partOfName, "partOfName: null");
+
         final CriteriaBuilder cb = this.entityManager.getCriteriaBuilder();
         final CriteriaQuery<Location> cq = cb.createQuery(Location.class);
         final Root<JpaLocation> root = cq.from(JpaLocation.class);
         cq.select(root);
-        // TODO nearby mathcing locations
-//        cq.where(cb.equal(root.get(JpaUnit_.code), code));
+        cq.where(
+                cb.like(cb.upper(root.get(JpaLocation_.name)), "%" + partOfName.toUpperCase() + "%")
+        );
+        cq.orderBy(cb.asc(root.get(JpaLocation_.name)));
 
         return executeQueryList(cq, 0, 10);
     }
