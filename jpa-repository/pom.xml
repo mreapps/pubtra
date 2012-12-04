@@ -18,6 +18,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.mreapps.pubtra</groupId>
+            <artifactId>repository</artifactId>
+            <version>${pubtra-version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate</artifactId>
             <version>3.2.7.ga</version>

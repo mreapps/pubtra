@@ -11,21 +11,23 @@
     <version>0.1</version>
 
     <modules>
-        <module>jpa-repo</module>
+        <module>repository</module>
+        <module>jpa-repository</module>
     </modules>
 
     <properties>
+        <pubtra-version>0.1</pubtra-version>
         <log4j-version>1.2.16</log4j-version>
 
-        <maven-compiler-plugin>2.3.2</maven-compiler-plugin>
-        <maven-source-plugin>2.1.2</maven-source-plugin>
-        <maven-surefire-plugin>2.11</maven-surefire-plugin>
-        <maven-war-plugin>2.2</maven-war-plugin>
+        <maven-compiler-plugin>3.0</maven-compiler-plugin>
+        <maven-source-plugin>2.2.1</maven-source-plugin>
+        <maven-surefire-plugin>2.12.4</maven-surefire-plugin>
+        <maven-war-plugin>2.3</maven-war-plugin>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
-        <source-version>1.7</source-version>
+        <source-version>1.6</source-version>
         <source-encoding>${project.build.sourceEncoding}</source-encoding>
     </properties>
 
