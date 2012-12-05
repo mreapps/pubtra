@@ -15,11 +15,11 @@ public class JpaLocation extends AbstractJpaBaseEntity implements Location
     @Column(name = "name", nullable = false, length = 150, unique = false)
     private String name;
 
-    @Column(name = "latitude", nullable = false)
-    private int latitude;
+    @Column(name = "latitude", nullable = false, precision = 9, scale = 6)
+    private double latitude;
 
-    @Column(name = "longitude", nullable = false)
-    private int longitude;
+    @Column(name = "longitude", nullable = false, precision = 9, scale = 6)
+    private double longitude;
 
     @Override
     public String getName()
@@ -34,25 +34,25 @@ public class JpaLocation extends AbstractJpaBaseEntity implements Location
     }
 
     @Override
-    public int getLatitude()
+    public double getLatitude()
     {
         return latitude;
     }
 
     @Override
-    public void setLatitude(int latitude)
+    public void setLatitude(double latitude)
     {
         this.latitude = latitude;
     }
 
     @Override
-    public int getLongitude()
+    public double getLongitude()
     {
         return longitude;
     }
 
     @Override
-    public void setLongitude(int longitude)
+    public void setLongitude(double longitude)
     {
         this.longitude = longitude;
     }

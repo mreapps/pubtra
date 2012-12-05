@@ -8,5 +8,5 @@ public interface LocationDao extends GenericDao<Location>
 {
     List<Location> findByPartOfName(String partOfName);
 
-    List<Location> findByGpsCoordinates(int latitude, int longitude);
+    List<Location> findByGpsCoordinates(double latitude, double longitude, int rangeInMeters);
 }

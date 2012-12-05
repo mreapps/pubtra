@@ -6,11 +6,11 @@ public interface Location extends BaseEntity
 
     void setName(String name);
 
-    int getLatitude();
+    double getLatitude();
 
-    void setLatitude(int latitude);
+    void setLatitude(double latitude);
 
-    int getLongitude();
+    double getLongitude();
 
-    void setLongitude(int longitude);
+    void setLongitude(double longitude);
 }
