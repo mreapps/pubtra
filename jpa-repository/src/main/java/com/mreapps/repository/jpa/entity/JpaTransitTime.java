@@ -1,7 +1,7 @@
 package com.mreapps.repository.jpa.entity;
 
-import com.mreapps.repository.entity.TransitDeparture;
 import com.mreapps.repository.entity.TransitRouteLocation;
+import com.mreapps.repository.entity.TransitTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "transot_time")
-public class JpaTransitTime extends AbstractJpaBaseEntity implements TransitDeparture
+@Table(name = "transit_time")
+public class JpaTransitTime extends AbstractJpaBaseEntity implements TransitTime
 {
     private static final long serialVersionUID = -229129031646684730L;
 

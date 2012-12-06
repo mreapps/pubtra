@@ -1,6 +1,6 @@
 package com.mreapps.repository.entity;
 
-public interface TransitDeparture extends BaseEntity
+public interface TransitTime extends BaseEntity
 {
     TransitRouteLocation getLocation();
 
