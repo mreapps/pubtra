@@ -3,7 +3,7 @@ package com.mreapps.repository.entity;
 import java.util.Date;
 import java.util.List;
 
-public interface TransportRoute extends BaseEntity
+public interface TransitRoute extends BaseEntity
 {
     String getCode();
 
@@ -25,9 +25,9 @@ public interface TransportRoute extends BaseEntity
 
     void setValidTo(Date validTo);
 
-    List<TransportRouteLocation> getLocations();
+    List<TransitRouteLocation> getLocations();
 
-    void addLocation(TransportRouteLocation location);
+    void addLocation(TransitRouteLocation location);
 
-    void removeLocation(TransportRouteLocation location);
+    void removeLocation(TransitRouteLocation location);
 }

@@ -1,18 +1,14 @@
 package com.mreapps.repository.jpa.dao.test;
 
 import com.mreapps.repository.dao.LocationDao;
+import com.mreapps.repository.entity.Location;
 import com.mreapps.repository.jpa.entity.JpaLocation;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import static org.junit.Assert.assertEquals;
 
-@ContextConfiguration("classpath:jpa-repository-test-context.xml")
-@TransactionConfiguration(defaultRollback = true)
-public class JpaLocationDaoTest extends AbstractTransactionalJUnit4SpringContextTests
+public class JpaLocationDaoTest extends AbstractJpaRepositoryTest
 {
     @Autowired
     private LocationDao locationDao;
@@ -65,7 +61,7 @@ public class JpaLocationDaoTest extends AbstractTransactionalJUnit4SpringContext
 
     private void createLocation(String name, double longitude, double latitude)
     {
-        JpaLocation location = new JpaLocation();
+        Location location = new JpaLocation();
         location.setName(name);
         location.setLatitude(latitude);
         location.setLongitude(longitude);

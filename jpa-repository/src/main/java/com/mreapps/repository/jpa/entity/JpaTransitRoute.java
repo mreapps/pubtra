@@ -1,7 +1,7 @@
 package com.mreapps.repository.jpa.entity;
 
-import com.mreapps.repository.entity.TransportRoute;
-import com.mreapps.repository.entity.TransportRouteLocation;
+import com.mreapps.repository.entity.TransitRoute;
+import com.mreapps.repository.entity.TransitRouteLocation;
 import org.apache.commons.lang.Validate;
 
 import javax.persistence.Column;
@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "transport_route")
-public class JpaTransportRoute extends AbstractJpaBaseEntity implements TransportRoute
+@Table(name = "transit_route")
+public class JpaTransitRoute extends AbstractJpaBaseEntity implements TransitRoute
 {
     private static final long serialVersionUID = -8619632034740942690L;
 
@@ -36,8 +36,8 @@ public class JpaTransportRoute extends AbstractJpaBaseEntity implements Transpor
     @Column(name = "valid_to")
     private Date validTo;
 
-    @OneToMany(mappedBy = "transportRoute")
-    private Set<JpaTransportRouteLocation> locations = new HashSet<JpaTransportRouteLocation>();
+    @OneToMany(mappedBy = "transitRoute")
+    private Set<JpaTransitRouteLocation> locations = new HashSet<JpaTransitRouteLocation>();
 
     @Override
     public String getCode()
@@ -100,25 +100,25 @@ public class JpaTransportRoute extends AbstractJpaBaseEntity implements Transpor
     }
 
     @Override
-    public List<TransportRouteLocation> getLocations()
+    public List<TransitRouteLocation> getLocations()
     {
-        return Collections.unmodifiableList(new ArrayList<TransportRouteLocation>(locations));
+        return Collections.unmodifiableList(new ArrayList<TransitRouteLocation>(locations));
     }
 
     @Override
-    public void addLocation(TransportRouteLocation location)
+    public void addLocation(TransitRouteLocation location)
     {
         Validate.notNull(location, "location: null");
-        Validate.isTrue(location instanceof JpaTransportRouteLocation, "location must be instance of " + JpaTransportRouteLocation.class.getSimpleName());
-        this.locations.add((JpaTransportRouteLocation) location);
+        Validate.isTrue(location instanceof JpaTransitRouteLocation, "location must be instance of " + JpaTransitRouteLocation.class.getSimpleName());
+        this.locations.add((JpaTransitRouteLocation) location);
     }
 
     @Override
-    public void removeLocation(TransportRouteLocation location)
+    public void removeLocation(TransitRouteLocation location)
     {
         Validate.notNull(location, "location: null");
-        Validate.isTrue(location instanceof JpaTransportRouteLocation, "location must be instance of " + JpaTransportRouteLocation.class.getSimpleName());
-        JpaTransportRouteLocation l = (JpaTransportRouteLocation) location;
+        Validate.isTrue(location instanceof JpaTransitRouteLocation, "location must be instance of " + JpaTransitRouteLocation.class.getSimpleName());
+        JpaTransitRouteLocation l = (JpaTransitRouteLocation) location;
         this.locations.remove(l);
     }
 }

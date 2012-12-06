@@ -1,10 +1,10 @@
 package com.mreapps.repository.entity;
 
-public interface TransportRouteLocation
+public interface TransitRouteLocation
 {
-    TransportRoute getTransportRoute();
+    TransitRoute getTransitRoute();
 
-    void setTransportRoute(TransportRoute transportRoute);
+    void setTransitRoute(TransitRoute transitRoute);
 
     Location getLocation();
 

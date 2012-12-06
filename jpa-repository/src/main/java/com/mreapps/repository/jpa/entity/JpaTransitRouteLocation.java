@@ -1,8 +1,8 @@
 package com.mreapps.repository.jpa.entity;
 
 import com.mreapps.repository.entity.Location;
-import com.mreapps.repository.entity.TransportRoute;
-import com.mreapps.repository.entity.TransportRouteLocation;
+import com.mreapps.repository.entity.TransitRoute;
+import com.mreapps.repository.entity.TransitRouteLocation;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,14 +12,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "transport_route_location")
-public class JpaTransportRouteLocation extends AbstractJpaBaseEntity implements TransportRouteLocation
+@Table(name = "transit_route_location")
+public class JpaTransitRouteLocation extends AbstractJpaBaseEntity implements TransitRouteLocation
 {
     private static final long serialVersionUID = 3097072424589822801L;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "transport_route_uid")
-    private JpaTransportRoute transportRoute;
+    @JoinColumn(name = "transit_route_uid")
+    private JpaTransitRoute transitRoute;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "location_uid")
@@ -29,20 +29,20 @@ public class JpaTransportRouteLocation extends AbstractJpaBaseEntity implements 
     private int sequence;
 
     @Override
-    public TransportRoute getTransportRoute()
+    public TransitRoute getTransitRoute()
     {
-        return transportRoute;
+        return transitRoute;
     }
 
     @Override
-    public void setTransportRoute(TransportRoute transportRoute)
+    public void setTransitRoute(TransitRoute transitRoute)
     {
-        if (transportRoute == null || transportRoute instanceof JpaTransportRoute)
+        if (transitRoute == null || transitRoute instanceof JpaTransitRoute)
         {
-            this.transportRoute = (JpaTransportRoute) transportRoute;
+            this.transitRoute = (JpaTransitRoute) transitRoute;
         } else
         {
-            throw new IllegalArgumentException("transportRoute must be instance of " + JpaTransportRoute.class.getSimpleName());
+            throw new IllegalArgumentException("transitRoute must be instance of " + JpaTransitRoute.class.getSimpleName());
         }
     }
 
