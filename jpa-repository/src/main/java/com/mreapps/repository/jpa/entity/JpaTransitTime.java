@@ -9,20 +9,22 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.Date;
 
 @Entity
-@Table(name = "transot_departure")
-public class JpaTransitDeparture extends AbstractJpaBaseEntity implements TransitDeparture
+@Table(name = "transot_time")
+public class JpaTransitTime extends AbstractJpaBaseEntity implements TransitDeparture
 {
     private static final long serialVersionUID = -229129031646684730L;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "transit_route_location_uid")
+    @JoinColumn(name = "transit_route_location_uid", nullable = false)
     private JpaTransitRouteLocation location;
 
-    @Column(name = "departure_time")
-    private Date departureTime;
+    @Column(name = "arrival_time", nullable = false)
+    private String arrivalTime;
+
+    @Column(name = "departure_time", nullable = false)
+    private String departureTime;
 
     @Override
     public TransitRouteLocation getLocation()
@@ -43,13 +45,25 @@ public class JpaTransitDeparture extends AbstractJpaBaseEntity implements Transi
     }
 
     @Override
-    public Date getDepartureTime()
+    public String getArrivalTime()
+    {
+        return arrivalTime;
+    }
+
+    @Override
+    public void setArrivalTime(String arrivalTime)
+    {
+        this.arrivalTime = arrivalTime;
+    }
+
+    @Override
+    public String getDepartureTime()
     {
         return departureTime;
     }
 
     @Override
-    public void setDepartureTime(Date departureTime)
+    public void setDepartureTime(String departureTime)
     {
         this.departureTime = departureTime;
     }

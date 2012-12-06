@@ -33,7 +33,7 @@ public class JpaTransitRoute extends AbstractJpaBaseEntity implements TransitRou
     @Column(name = "valid_from", nullable = false)
     private Date validFrom;
 
-    @Column(name = "valid_to")
+    @Column(name = "valid_to", nullable = true)
     private Date validTo;
 
     @OneToMany(mappedBy = "transitRoute")

@@ -1,14 +1,16 @@
 package com.mreapps.repository.entity;
 
-import java.util.Date;
-
 public interface TransitDeparture extends BaseEntity
 {
     TransitRouteLocation getLocation();
 
     void setLocation(TransitRouteLocation location);
 
-    Date getDepartureTime();
+    String getArrivalTime();
 
-    void setDepartureTime(Date departureTime);
+    void setArrivalTime(String arrivalTime);
+
+    String getDepartureTime();
+
+    void setDepartureTime(String departureTime);
 }

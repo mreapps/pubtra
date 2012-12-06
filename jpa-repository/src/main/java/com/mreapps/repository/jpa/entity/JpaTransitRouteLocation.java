@@ -18,14 +18,14 @@ public class JpaTransitRouteLocation extends AbstractJpaBaseEntity implements Tr
     private static final long serialVersionUID = 3097072424589822801L;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "transit_route_uid")
+    @JoinColumn(name = "transit_route_uid", nullable = false)
     private JpaTransitRoute transitRoute;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "location_uid")
+    @JoinColumn(name = "location_uid", nullable = false)
     private JpaLocation location;
 
-    @Column(name = "sequence", nullable = false)
+    @Column(name = "sequence", nullable = false, precision = 3, scale = 0)
     private int sequence;
 
     @Override

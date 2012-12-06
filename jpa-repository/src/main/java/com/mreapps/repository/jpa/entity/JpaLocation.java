@@ -15,10 +15,10 @@ public class JpaLocation extends AbstractJpaBaseEntity implements Location
     @Column(name = "name", nullable = false, length = 150, unique = false)
     private String name;
 
-    @Column(name = "latitude", nullable = false, precision = 9, scale = 6)
+    @Column(name = "latitude", nullable = false, precision = 11, scale = 8)
     private double latitude;
 
-    @Column(name = "longitude", nullable = false, precision = 9, scale = 6)
+    @Column(name = "longitude", nullable = false, precision = 11, scale = 8)
     private double longitude;
 
     @Override
